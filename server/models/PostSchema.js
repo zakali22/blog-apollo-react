@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const { Schema } = mongoose;
-const User = require("./UserSchema")
+const UserSchema = require("./UserSchema").schema
 
 const PostSchema = new Schema({
     title: String,
@@ -9,8 +9,10 @@ const PostSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    created_by: User,
-    unique: true
+    created_by: {
+        type: Schema.Types.ObjectId, 
+        ref: 'User'
+    }
 })
 
 module.exports = mongoose.model('Posts', PostSchema);

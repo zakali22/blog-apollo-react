@@ -1,16 +1,17 @@
 const mongoose = require("mongoose")
-const PostSchema = require("./PostSchema")
 const {Schema} = mongoose
-const PostSchema = require("./PostSchema")
+const PostSchema = require("./PostSchema").schema
 
 const UserSchema = new Schema({
     name: String,
-    posts: [PostSchema],
+    posts: [{
+        type: Schema.Types.ObjectId, 
+        ref: 'Posts'
+    }],
     created_at: {
         type: Date,
         default: Date.now
-    },
-    unique: true
+    }
 })
 
 
