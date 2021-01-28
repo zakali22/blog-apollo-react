@@ -21,7 +21,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log("✅ Database connected ✅" )
 
-    server.listen().then(({url}) => console.log(`Listening on port http://localhost:${PORT}`))
+    server.listen({port: PORT}).then(({url}) => console.log(`Listening on port http://localhost:${PORT}`))
 
 });
 
