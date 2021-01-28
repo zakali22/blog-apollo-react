@@ -5,7 +5,7 @@ const typeDefs = gql`
 
     type User {
         id: ID
-        name: String!
+        name: String
         image: String
     }
 
@@ -33,6 +33,7 @@ const typeDefs = gql`
     type Query {
         post(id: ID!): Post
         posts: [Post]
+        users: [User]
     }
 
     type Mutation {

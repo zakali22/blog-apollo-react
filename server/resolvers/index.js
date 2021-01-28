@@ -11,14 +11,19 @@ const resolvers = {
         },
         posts: async (obj, args, context) => {
             return await Post.find({})
+        },
+        users: async (obj, args, context) => {
+            return await User.find({})
         }
     },
 
     Mutation: {
         addPost: async (obj, {post}, context) => {
             try {
+                console.log(post.createdBy)
                 await Post.create({
-                    ...post
+                    ...post,
+                    created_by: post.createdBy.id
                 })
     
                 return await Post.find({})
@@ -60,6 +65,7 @@ const resolvers = {
     Post: {
         createdAt: async (obj, args, context) => {
             try {
+                // console.log(obj)
                 return obj.created_at
             } catch(e){
                 console.log(e)
@@ -67,7 +73,8 @@ const resolvers = {
         },
         createdBy: async (obj, args, context) => {
             try {
-                return obj.created_by
+                const userId = obj.created_by;
+                return await User.findById({_id: userId})
             } catch(e){
                 console.log(e)
             }
