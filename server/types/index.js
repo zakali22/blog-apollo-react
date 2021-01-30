@@ -51,6 +51,7 @@ const typeDefs = gql`
         addPost(post: PostInput): [Post]
         editPost(_id: ID!, post: PostInput): Post
         deletePost(_id: ID!): [Post]
+        deleteUser(_id: ID): [User]
         deleteUserPost(_id: ID!, postId: PostInput): User
         addUser(user: UserInput): [User]
         addUserPost(_id: ID!, postId: PostInput): User

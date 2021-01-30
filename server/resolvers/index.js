@@ -59,11 +59,25 @@ const resolvers = {
                 })
 
                 if(!userPostExists){
-                    const userPosts = [...user.posts, args.postId]
+                    const posts = await Post.find({})
+                    console.log(posts)
+                    const postAlreadyHasUser = posts.find(post => {
+                        const postIdArgs = JSON.parse(JSON.stringify(args.postId))
+                        const stringifiedPost = String(post._id)
 
-                    await User.findByIdAndUpdate(args._id, {posts: userPosts}, {new: true})
-        
-                    return await User.findById(args._id)
+                        return stringifiedPost === postIdArgs._id
+                    })
+
+                    if(!postAlreadyHasUser){
+                        const userPosts = [...user.posts, args.postId]
+
+                        await User.findByIdAndUpdate(args._id, {posts: userPosts}, {new: true})
+            
+                        return await User.findById(args._id)
+                    } 
+
+                    throw new Error("Post already has an associated user")
+
                 }
 
                 throw new Error("User post already exists")
@@ -93,6 +107,36 @@ const resolvers = {
                 }
 
                 throw new Error("Post doesn't exist")
+            } catch(e){
+                return e
+            }
+        },
+        deletePost: async (obj, args, context) => {
+            try {
+                const post = await Post.findById(args._id)
+
+                if(post){
+                    await Post.findByIdAndDelete(args._id)
+
+                    return await Post.find({})
+                }
+
+                throw new Error("Post doesn't exist")
+            } catch(e){
+                return e
+            }
+        },
+        deleteUser: async (obj, args, context) => {
+            try {
+                const user = await User.findById(args._id)
+
+                if(user){
+                    await User.findByIdAndDelete(args._id)
+
+                    return await User.find({})
+                }
+
+                throw new Error("User doesn't exist")
             } catch(e){
                 return e
             }
