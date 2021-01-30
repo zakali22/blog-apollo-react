@@ -40,6 +40,24 @@ const resolvers = {
             } catch(e){
                 console.log(e)
             }
+        },
+        editUserDetails: async (obj, {_id, user}, context) => {
+            await User.findByIdAndUpdate(_id, user, {new: true})
+
+            return await User.findById({_id})
+        },
+        deleteUserPost: async (obj, args, context) => {
+            const userPosts = await User.findById({_id: args._id})
+            const newUserPosts = userPosts.posts.filter(post => {
+                const postIdArgs = JSON.parse(JSON.stringify(args.postId))
+                const stringifiedPost = String(post)
+
+                return stringifiedPost !== postIdArgs._id
+            })
+            
+            await User.findByIdAndUpdate(args._id, {posts: newUserPosts}, {new: true})
+            
+            return await User.findById({_id: args._id})
         }
     },
 

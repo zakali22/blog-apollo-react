@@ -43,7 +43,10 @@ const typeDefs = gql`
     type Mutation {
         addPost(post: PostInput): [Post]
         deletePost(_id: ID!): [Post]
+        deleteUserPost(_id: ID!, postId: PostInput): User
         addUser(user: UserInput): [User]
+        addUserPost(_id: ID!, postId: PostInput): User
+        editUserDetails(_id: ID!, user: UserInput): User
     }
 `
 
