@@ -33,11 +33,11 @@ const resolvers = {
         },
         addUser: async (obj, {user}, context) => {
             try {   
-                const posts = JSON.parse(JSON.stringify(user.posts))
-                console.log(posts)
+                // const posts = JSON.parse(JSON.stringify(user.posts))
+                // console.log(posts)
                 await User.create({
-                    ...user,
-                    posts
+                    ...user
+                    // posts
                 })
 
                 return await User.find({})
@@ -82,6 +82,12 @@ const resolvers = {
                 console.log(e)
             }
         },
+    },
+
+    User: {
+        posts: (obj, args, context) => {
+            console.log(obj)
+        }
     }
 }
 
