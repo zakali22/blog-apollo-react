@@ -6,6 +6,10 @@ const typeDefs = gql`
     type User {
         _id: ID
         name: String
+        username: String
+        createdAt: Date
+        updatedAt: Date
+        email: String
         image: String
         posts: [Post]
     }
@@ -15,6 +19,7 @@ const typeDefs = gql`
         title: String!
         body: String!
         createdAt: Date
+        updatedAt: Date
         createdBy: User
     }
 
@@ -22,6 +27,8 @@ const typeDefs = gql`
     input UserInput {
         _id: ID
         name: String
+        username: String
+        email: String
         posts: [PostInput]
     }
 
@@ -42,6 +49,7 @@ const typeDefs = gql`
 
     type Mutation {
         addPost(post: PostInput): [Post]
+        editPost(_id: ID!, post: PostInput): Post
         deletePost(_id: ID!): [Post]
         deleteUserPost(_id: ID!, postId: PostInput): User
         addUser(user: UserInput): [User]

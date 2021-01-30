@@ -7,7 +7,7 @@ const User = require("../models/UserSchema")
 const resolvers = {
     Query: {
         post: async (obj, args, context) => {
-            return await Post.findById({_id: args._id})
+            return await Post.findById(args._id)
         },
         posts: async (obj, args, context) => {
             return await Post.find({})
@@ -33,22 +33,73 @@ const resolvers = {
         },
         addUser: async (obj, {user}, context) => {
             try {   
-                await User.create({
-                    ...user
-                })
-                return await User.find({})
+                const userExists = await User.find({username: user.username})
+                console.log(userExists)
+
+                if(userExists.length === 0){
+                    await User.create({
+                        ...user
+                    })
+                    return await User.find({})
+                } 
+
+                throw new Error("User already exists")
             } catch(e){
-                console.log(e)
+                return e
             }
+        },
+        addUserPost: async (obj, args, context) => {    
+            try {
+                const user = await User.findById(args._id)
+                const userPostExists = user.posts.find(post => {
+                    const postIdArgs = JSON.parse(JSON.stringify(args.postId))
+                    const stringifiedPost = String(post)
+
+                    return stringifiedPost === postIdArgs._id
+                })
+
+                if(!userPostExists){
+                    const userPosts = [...user.posts, args.postId]
+
+                    await User.findByIdAndUpdate(args._id, {posts: userPosts}, {new: true})
+        
+                    return await User.findById(args._id)
+                }
+
+                throw new Error("User post already exists")
+            } catch(e){
+                return e
+            }
+
         },
         editUserDetails: async (obj, {_id, user}, context) => {
             await User.findByIdAndUpdate(_id, user, {new: true})
 
-            return await User.findById({_id})
+            return await User.findById(_id)
+        },
+        editPost: async (obj, args, context) => {
+            try {
+                const post = await Post.findById(args._id)
+                console.log(post)
+
+                if(post){
+                    if(args.post.createdBy) {
+                        await Post.findByIdAndUpdate(args._id, {...args.post, created_by: args.post.createdBy}, {new: true})
+                    } else {
+                        await Post.findByIdAndUpdate(args._id, args.post, {new: true})
+                    }
+
+                    return await Post.findById(args._id)
+                }
+
+                throw new Error("Post doesn't exist")
+            } catch(e){
+                return e
+            }
         },
         deleteUserPost: async (obj, args, context) => {
-            const userPosts = await User.findById({_id: args._id})
-            const newUserPosts = userPosts.posts.filter(post => {
+            const user = await User.findById(args._id)
+            const newUserPosts = user.posts.filter(post => {
                 const postIdArgs = JSON.parse(JSON.stringify(args.postId))
                 const stringifiedPost = String(post)
 
@@ -57,7 +108,7 @@ const resolvers = {
             
             await User.findByIdAndUpdate(args._id, {posts: newUserPosts}, {new: true})
             
-            return await User.findById({_id: args._id})
+            return await User.findById(args._id)
         }
     },
 
@@ -88,10 +139,18 @@ const resolvers = {
                 console.log(e)
             }
         },
+        updatedAt: async (obj, args, context) => {
+            try {
+                // console.log(obj)
+                return obj.updated_at
+            } catch(e){
+                console.log(e)
+            }
+        },
         createdBy: async (obj, args, context) => {
             try {
                 const userId = obj.created_by;
-                return await User.findById({_id: userId})
+                return await User.findById(userId)
             } catch(e){
                 console.log(e)
             }
@@ -103,12 +162,28 @@ const resolvers = {
             let posts = []
 
             for(let post in obj.posts){
-                const postFetched = await Post.findById({_id: obj.posts[post]})
+                const postFetched = await Post.findById(obj.posts[post])
                 posts.push(postFetched)
             }
 
             return posts
-        }
+        },
+        createdAt: async (obj, args, context) => {
+            try {
+                // console.log(obj)
+                return obj.created_at
+            } catch(e){
+                console.log(e)
+            }
+        },
+        updatedAt: async (obj, args, context) => {
+            try {
+                // console.log(obj)
+                return obj.updated_at
+            } catch(e){
+                console.log(e)
+            }
+        },
     }
 }
 
