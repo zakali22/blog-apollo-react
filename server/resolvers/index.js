@@ -33,13 +33,9 @@ const resolvers = {
         },
         addUser: async (obj, {user}, context) => {
             try {   
-                // const posts = JSON.parse(JSON.stringify(user.posts))
-                // console.log(posts)
                 await User.create({
                     ...user
-                    // posts
                 })
-
                 return await User.find({})
             } catch(e){
                 console.log(e)
@@ -85,8 +81,15 @@ const resolvers = {
     },
 
     User: {
-        posts: (obj, args, context) => {
-            console.log(obj)
+        posts: async (obj, args, context) => {
+            let posts = []
+
+            for(let post in obj.posts){
+                const postFetched = await Post.findById({_id: obj.posts[post]})
+                posts.push(postFetched)
+            }
+
+            return posts
         }
     }
 }
