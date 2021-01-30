@@ -7,7 +7,7 @@ const User = require("../models/UserSchema")
 const resolvers = {
     Query: {
         post: async (obj, args, context) => {
-            return await Post.findById({_id: args.id})
+            return await Post.findById({_id: args._id})
         },
         posts: async (obj, args, context) => {
             return await Post.find({})
@@ -23,7 +23,7 @@ const resolvers = {
                 console.log(post.createdBy)
                 await Post.create({
                     ...post,
-                    created_by: post.createdBy.id
+                    created_by: post.createdBy._id
                 })
     
                 return await Post.find({})
@@ -33,8 +33,11 @@ const resolvers = {
         },
         addUser: async (obj, {user}, context) => {
             try {   
+                const posts = JSON.parse(JSON.stringify(user.posts))
+                console.log(posts)
                 await User.create({
-                    ...user
+                    ...user,
+                    posts
                 })
 
                 return await User.find({})
