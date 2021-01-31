@@ -1,4 +1,4 @@
-const {ApolloServer} = require("apollo-server-express")
+const {ApolloServer} = require("apollo-server")
 const express = require("express")
 const resolvers = require("./resolvers/index.js")
 const typeDefs = require("./types/index.js")
