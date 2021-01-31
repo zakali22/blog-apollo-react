@@ -1,10 +1,13 @@
-const {ApolloServer} = require("apollo-server")
+const {ApolloServer} = require("apollo-server-express")
+const express = require("express")
 const resolvers = require("./resolvers/index.js")
 const typeDefs = require("./types/index.js")
 
 const mongoose = require('mongoose');
 const db = mongoose.connection;
+const path = '/api'
 const PORT = process.env.PORT || 4000;
+const app = express();
 
 const server = new ApolloServer({
     typeDefs,
@@ -21,7 +24,9 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log("✅ Database connected ✅" )
 
-    server.listen({port: PORT}).then(({url}) => console.log(`Listening on port http://localhost:${PORT}`))
+    server.applyMiddleware({app, path})
+
+    app.listen(PORT, () => console.log(`Listening on port http://localhost:${PORT}/api`))
 
 });
 
