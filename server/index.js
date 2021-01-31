@@ -26,7 +26,11 @@ db.once('open', function() {
 
     server.applyMiddleware({app, path})
 
-    app.listen(PORT, () => console.log(`Listening on port http://localhost:${PORT}/api`))
+    // app.listen(PORT, () => console.log(`Listening on port http://localhost:${PORT}/api`))
+
+    server.listen({ port: PORT }).then(({ url }) => {
+        console.log(`🚀 Server ready at ${url}`);
+    });
 
 });
 
