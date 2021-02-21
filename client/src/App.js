@@ -1,3 +1,4 @@
+import React from "react"
 import ApolloClient from "apollo-boost"
 import {ApolloProvider, Query} from "react-apollo"
 import {Switch, Route, Link} from "react-router-dom"

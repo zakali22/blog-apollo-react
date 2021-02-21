@@ -17,9 +17,10 @@ body {
 }
 
 h1, .h1 {
-    font-size: 6rem;
+    font-size: 12rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
+    line-height: 0.89;
 }
 
 h2, .h2 {
@@ -51,21 +52,23 @@ ul {
 }
 
 a {
-    color: inherit;
     text-decoration: none;
-
-    &:link, &:visited {
-        color: inherit;
-    }
-    &:hover, &:focus {
-        color: inherit;
-    }
 }
 
 .btn {
     padding: 3rem 5rem;
-    color: #fff;
-    background: $pink;
+    color: $black;
+    background: white; 
+    font-weight: 600;
+
+    &.btn--primary {
+        background: $pink;
+        color: white; 
+        &:hover {
+            background: white;
+            color: $black;
+        }
+    }
 }
 
 
