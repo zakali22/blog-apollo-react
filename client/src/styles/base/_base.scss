@@ -69,6 +69,14 @@ a {
             color: $black;
         }
     }
+    &.btn--secondary {
+        background: $darkblue;
+        color: white; 
+        &:hover {
+            background: white;
+            color: $black;
+        }
+    }
 }
 
 

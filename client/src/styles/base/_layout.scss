@@ -10,3 +10,51 @@
     grid-template-columns: repeat(12, minmax(min-content, 1fr));
     grid-template-rows: 1fr;
 }
+
+.overlapped {
+    &__left {
+        grid-column: 1 / 8;
+        grid-row: 1 / 1;
+        z-index: 2;
+        margin-top: 70px;
+        pointer-events: none;
+    }
+    &__right {
+        grid-column: 5 / -1;
+        grid-row: 1 / 1;
+        z-index: 1;
+        &-image {
+            width: auto;
+            position: relative;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+            
+            .btn {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+
+            &--svg {
+                height: 85vh;
+                background: rgba(0,86,245, 0.5);
+                border-radius: 100px;
+                border-bottom-right-radius: 0;
+            }
+        }
+    }
+}
+
+.title-bg {
+    position: absolute;
+    top: 27px;
+    left: -53px;
+    color: #bbbcbe;
+    opacity: 0.2;
+    font-size: 15rem;
+    z-index: -1;
+    letter-spacing: 10px;
+}

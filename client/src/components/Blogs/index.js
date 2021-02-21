@@ -9,7 +9,7 @@ export default class Blogs extends Component {
                 <div className="container">
                     <div className="blogs__title">
                         <h2>Blogs</h2>
-                        <h2 className="blogs__title-bg">Blogs</h2>
+                        <h2 className="blogs__title-bg title-bg">Blogs</h2>
                     </div>
                     <div className="blogs__listing grid">
                         <Link to="/" className="blogs__listing-card blogs__listing-card--condensed blog-1">

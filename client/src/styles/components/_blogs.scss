@@ -2,16 +2,6 @@
     padding-top: 120px;
     &__title {
         position: relative;
-        &-bg {
-            position: absolute;
-            top: 27px;
-            left: -53px;
-            color: #bbbcbe;
-            opacity: 0.2;
-            font-size: 15rem;
-            z-index: -1;
-            letter-spacing: 10px;
-        }
     }
     &__listing {
         margin-top: 35px;
