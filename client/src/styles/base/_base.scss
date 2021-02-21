@@ -1,0 +1,72 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+h1, .h1 {
+    font-size: 6rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+h2, .h2 {
+    font-size: 5rem;
+    font-family: 'Backslash';
+    font-weight: 400;
+}
+
+h3, .h3 {
+    font-size: 4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+h4, .h4 {
+    font-size: 3rem;
+    font-family: 'Landasans';
+    font-weight: 100;
+
+}
+
+p {
+    font-size: 2rem;
+    color: $lightgrey;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:link, &:visited {
+        color: inherit;
+    }
+    &:hover, &:focus {
+        color: inherit;
+    }
+}
+
+.btn {
+    padding: 3rem 5rem;
+    color: #fff;
+    background: $pink;
+}
+
+
+

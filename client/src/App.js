@@ -3,10 +3,7 @@ import {ApolloProvider, Query} from "react-apollo"
 import {Switch, Route, Link} from "react-router-dom"
 
 import Homepage from "./pages/Homepage"
-import Posts from "./components/Posts"
-import Post from "./components/Post"
-import AddPost from "./components/AddPost"
-import EditPost from "./components/EditPost"
+import Layout from "./components/Layout/index"
 
 const defaultState = {
   isEditMode: true
@@ -23,14 +20,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={Homepage}/>
-          <Route path="/post/:id" component={Post}/>
-          <Route path="/create" component={AddPost}/>
-          <Route path="/edit/:id" component={EditPost}/>
-        </Switch>
-      </div>
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={Homepage}/>
+          </Switch>
+        </Layout>
     </ApolloProvider>
   );
 }
