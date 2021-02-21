@@ -1,6 +1,8 @@
 .navbar {
     background: transparent;
     padding: 50px 0;
+    position: fixed;
+    width: 100%;
     
     & > .container {
         display: flex;
@@ -25,6 +27,7 @@
     &__logo-text {
         margin-left: 7px;
         font-weight: 900;
+        color: white;
     }
 
     // Nav items 
@@ -39,6 +42,10 @@
         margin-right: 30px;
         font-size: 19px;
         position: relative;
+
+        &:link, &:visited {
+            color: white;
+        }
 
         &::after {
             content: '';

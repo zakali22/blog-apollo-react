@@ -1,0 +1,6 @@
+.header {
+    height: calc(100vh + #{$navbar-height});
+    padding-top: $navbar-height;
+    min-height: 100%;
+    background: $darkblue;
+}

@@ -4,3 +4,9 @@
     max-width: 1300px;
     padding: 0 15px;
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(min-content, 1fr));
+    grid-template-rows: 1fr;
+}
