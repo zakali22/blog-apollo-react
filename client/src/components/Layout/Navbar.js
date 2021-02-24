@@ -28,19 +28,19 @@ export default class Navbar extends Component {
         return (
             <nav className="navbar" ref={this.navEl}>
                 <div className="container">
-                    <Link to="/" className="navbar__logo-wrapper">
-                        <div className="navbar__logo-icon">B</div>
-                        <span className="navbar__logo-text">Bloggy</span>
+                    <Link to="/" className="logo-wrapper">
+                        <div className="logo-icon">B</div>
+                        <span className="logo-text">Bloggy</span>
                     </Link>
                     <div className="navbar__listing">
                         <div className="navbar__listing-left">
-                            <Link className="navbar__listing-item">About</Link>
-                            <Link className="navbar__listing-item">Stories</Link>
-                            <Link className="navbar__listing-item">Popular</Link>
+                            <Link to="/" className="navbar__listing-item">About</Link>
+                            <Link to="/" className="navbar__listing-item">Stories</Link>
+                            <Link to="/" className="navbar__listing-item">Popular</Link>
                         </div>
                         <div className="navbar__listing-right">
-                            <Link className="navbar__listing-item">Signup</Link>
-                            <Link className="navbar__listing-item">Login</Link>
+                            <Link to="/" className="navbar__listing-item">Signup</Link>
+                            <Link to="/" className="navbar__listing-item">Login</Link>
                         </div>
                     </div>
                 </div>

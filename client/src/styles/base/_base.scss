@@ -15,6 +15,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     overflow-x: hidden;
+    padding-bottom: $footer-height;
 }
 
 h1, .h1 {
@@ -54,6 +55,10 @@ ul {
 
 a {
     text-decoration: none;
+    font-size: 19px;
+    &:link, &:visited {
+        color: white;
+    }
 }
 
 .btn {

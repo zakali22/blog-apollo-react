@@ -11,6 +11,12 @@
     grid-template-rows: 1fr;
 }
 
+.main-content {
+    position: relative;
+    z-index: 2;
+    background: white;
+}
+
 .overlapped {
     &__left {
         grid-column: 1 / 8;
