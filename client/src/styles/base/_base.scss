@@ -23,6 +23,9 @@ h1, .h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     line-height: 0.89;
+
+    @media(max-width: 1145px){}
+    font-size: 10rem;
 }
 
 h2, .h2 {

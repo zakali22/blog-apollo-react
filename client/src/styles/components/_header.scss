@@ -1,9 +1,22 @@
 .header {
-    height: calc(100vh + #{$navbar-height} + 50px);
-    padding-top: calc(#{$navbar-height} + 50px);
+    height: calc(100vh + #{$navbar-height});
+    padding-top: calc(#{$navbar-height});
     min-height: 100%;
     background: $darkblue;
     color: #fff;
+    @media(max-width: 1140px){
+        // height: calc(100vh + #{$navbar-height} + 250px);
+    }
+
+    @media(max-width: 930px){
+        // height: calc(100vh + #{$navbar-height} + 350px);
+    }
+
+    @media(max-height: 770px){
+        height: calc(100% + #{$navbar-height});
+        padding: 135px 0 100px 0;
+    }
+
     &__description {
         &-author {
             margin-bottom: 20px;
