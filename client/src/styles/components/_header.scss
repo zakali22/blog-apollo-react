@@ -1,0 +1,18 @@
+.header {
+    height: calc(100vh + #{$navbar-height} + 50px);
+    padding-top: calc(#{$navbar-height} + 50px);
+    min-height: 100%;
+    background: $darkblue;
+    color: #fff;
+    &__description {
+        &-author {
+            margin-bottom: 20px;
+        }
+        &-title {
+            margin-bottom: 70px;
+        }
+        &-text {
+
+        }
+    }
+}
