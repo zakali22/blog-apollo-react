@@ -1,0 +1,56 @@
+.slick-track {
+    display: flex;
+}
+
+.slick-initialized .slick-slide {
+    // width: 500px !important;
+    margin-right: 50px;
+    &:hover, &:focus {
+        outline: none;
+    }
+}
+
+.slick-list {
+    width: 100vw;
+}
+
+.slick-dots {
+    display: none !important;
+}
+
+.slick-next:before, .slick-prev:before {
+    display: none;
+}
+
+.slick-prev, .slick-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    transform: translate(0,0);
+    background: $superlightgrey;
+    position: absolute;
+    top: -150px;
+
+    svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    &:hover, &:focus {
+        background: $superlightgrey;
+    }
+}
+
+.slick-prev {
+    right: 50px;
+    left: auto;
+    transform: scale(-1);
+    margin-right: 60px;
+}
+
+.slick-next {
+    right: 0;
+    
+}
