@@ -27,7 +27,7 @@ h1, .h1 {
     @media(max-width: 1145px){
         font-size: 10rem;
     }
-    @media(max-width: 992px){
+    @media(max-width: 991px){
         font-size: 9rem;
     }
     @media(max-width: 767px){
@@ -42,12 +42,31 @@ h2, .h2 {
     font-size: 10rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
+
+    @media(max-width: 1300px){
+        font-size: 9rem;
+    }
+    @media(max-width: 991px){
+        font-size: 8rem;
+    }
+    @media(max-width: 767px){
+        font-size: 7rem;
+    }
+    // @media(max-width: 500px){
+    //     font-size: 5rem;
+    // }
 }
 
 h3, .h3 {
     font-size: 5rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    @media(max-width: 1300px){
+        font-size: 4rem;
+    }
+    @media(max-width: 991px){
+        font-size: 3rem;
+    }
 }
 
 h4, .h4 {

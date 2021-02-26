@@ -63,4 +63,14 @@
     font-size: 15rem;
     z-index: -1;
     letter-spacing: 10px;
+
+    @media(max-width: 991px){
+        font-size: 11rem;
+        letter-spacing: 5px;
+        left: -30px
+    }
+    @media(max-width: 767px){
+        font-size: 9rem;
+        letter-spacing: 4px;
+    }
 }
