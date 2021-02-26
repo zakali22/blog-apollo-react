@@ -5,7 +5,7 @@ import {ReactComponent as StuckHome} from "../../assets/images/stuck-home.svg"
 export default class Blogs extends Component {
     render() {
         return (
-            <div className="blogs">
+            <div className="blogs section">
                 <div className="container">
                     <div className="blogs__title">
                         <h2>Blogs</h2>

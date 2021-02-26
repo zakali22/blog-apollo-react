@@ -17,6 +17,13 @@
     background: white;
 }
 
+.section {
+    padding: 120px 0;
+    @media(max-width: 767px){
+        padding: 80px 0;
+    }
+}
+
 .overlapped {
     &__left {
         grid-column: 1 / 8;

@@ -18,7 +18,7 @@ export default function BlogsCarousel() {
         prevArrow: <SamplePrevArrow />
     };
     return (
-        <div className="blogs-carousel">
+        <div className="blogs-carousel section">
             <div className="container">
                 <div className="blogs-carousel__description">
                     <div className="blogs-carousel__description-title">
