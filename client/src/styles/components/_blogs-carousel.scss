@@ -3,6 +3,9 @@
     overflow: hidden;
     .blogs__listing-card {
         width: auto !important;
+        @media(max-width: 600px){
+            max-width: 90%;
+        }
     }
     .blogs__listing-card-image {
         width: auto;
@@ -11,9 +14,22 @@
 
     &__description {
         margin-bottom: 100px;
+        @media(max-width: 1048px){
+            margin-bottom: 150px;
+        }
         &-title {
             position: relative;
             margin-bottom: 80px;
+            &-bg {
+                @media(min-width: 992px) and (max-width: 1250px) {
+                    font-size: 12rem;
+                    letter-spacing: 7px;
+                }
+                @media(max-width: 767px){
+                    font-size: 7rem;
+                    letter-spacing: 2px;
+                }
+            }
         }
         p {
             color: $darkblue; 

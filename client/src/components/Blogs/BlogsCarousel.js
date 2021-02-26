@@ -15,7 +15,24 @@ export default function BlogsCarousel() {
         slidesToScroll: 3,
         variableWidth: true,
         nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
+        prevArrow: <SamplePrevArrow />,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+        ]
     };
     return (
         <div className="blogs-carousel section">

@@ -5,6 +5,9 @@
 .slick-initialized .slick-slide {
     // width: 500px !important;
     margin-right: 50px;
+    @media(max-width: 992px){
+        margin-right: 30px;
+    }
     &:hover, &:focus {
         outline: none;
     }
@@ -32,6 +35,10 @@
     background: $superlightgrey;
     position: absolute;
     top: -150px;
+
+    @media(max-width: 1048px){
+        top: -120px;
+    }
 
     svg {
         width: 30px;
