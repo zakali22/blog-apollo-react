@@ -44,6 +44,20 @@ export default class Navbar extends Component {
                         navbarOpen: false
                     }))
                 }
+                if(this.navEl.current){
+                    console.log(this.navEl.current.classList.contains('light--with-split-panels'))
+                    if(this.navEl.current.classList.contains('light--with-split-panels')){
+                        console.log("Added")
+                        this.navEl.current.classList.add('navbar--show')
+                    }
+                }
+            } else {
+                if(this.navEl.current){
+                    if(this.navEl.current.classList.contains('light--with-split-panels')){
+                        console.log("Added")
+                        this.navEl.current.classList.remove('navbar--show')
+                    }
+                }
             }
         })
     }

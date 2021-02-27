@@ -133,6 +133,9 @@
                 }
                 &:link, &:visited {
                     color: white;
+                    @media(max-width: 970px){
+                        color: $black;
+                    }
                 }
             }
         }
@@ -168,6 +171,12 @@
 .header--fixed.top, .navbar.top {
     transition: none;
     transform: translateY(0);
+    &.light--with-split-panels.navbar--show {
+        background: $darkblue;
+        .logo-icon {
+            background: $blue;
+        }
+    }
 }
 .header--fixed.not-top, .navbar.not-top {
     position: fixed;
@@ -200,7 +209,7 @@
             color: white;
         }
         .navbar__listing--mobile {
-            background: white;
+            background: $darkblue;
         }
         .navbar__listing-left {
             .navbar__listing-item {

@@ -3,12 +3,29 @@
     min-height: 100%;
     display: flex;
 
+    &__left, &__right {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
     &__left {
         flex: 1 0 50%;
         padding-top: $navbar-height;
+        display: flex;
+        align-items: center;
+        &-description {
+            width: 100%;
+            max-width: 70%;
+            margin: 0 auto;
+        }
     }
     &__right {
         flex: 1 0 50%;
         padding-top: $navbar-height;
+        &-content {
+            width: 100%;
+            max-width: 70%;
+            margin: 0 auto;
+        }
     }
 }
