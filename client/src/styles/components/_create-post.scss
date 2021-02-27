@@ -1,0 +1,11 @@
+.create-post {
+    &.main-content {
+        // padding-top: $navbar-height;
+    }
+    &__panels-left {
+        background-color: $blue;
+        color: white;
+    }
+    &__panels-right {
+    }
+}

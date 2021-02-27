@@ -1,0 +1,14 @@
+.split-panels {
+    height: 100vh;
+    min-height: 100%;
+    display: flex;
+
+    &__left {
+        flex: 1 0 50%;
+        padding-top: $navbar-height;
+    }
+    &__right {
+        flex: 1 0 50%;
+        padding-top: $navbar-height;
+    }
+}
