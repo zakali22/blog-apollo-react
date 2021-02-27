@@ -1,0 +1,23 @@
+.blogs-carousel {
+    padding: 120px 0;
+    .blogs__listing-card {
+        width: auto !important;
+    }
+    .blogs__listing-card-image {
+        width: auto;
+        height: 400px;
+    }
+
+    &__description {
+        margin-bottom: 100px;
+        &-title {
+            position: relative;
+            margin-bottom: 80px;
+        }
+        p {
+            color: $darkblue; 
+            width: 100%;
+            max-width: 700px;
+        }
+    }
+}

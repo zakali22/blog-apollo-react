@@ -1,0 +1,89 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    padding-bottom: $footer-height;
+}
+
+h1, .h1 {
+    font-size: 12rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    line-height: 0.89;
+}
+
+h2, .h2 {
+    font-size: 10rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+h3, .h3 {
+    font-size: 5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+h4, .h4 {
+    font-size: 3rem;
+    font-family: 'Landasans';
+    font-weight: 100;
+
+}
+
+p {
+    font-size: 2rem;
+    color: $lightgrey;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-size: 19px;
+    &:link, &:visited {
+        color: white;
+    }
+}
+
+.btn {
+    padding: 3rem 5rem;
+    color: $black;
+    background: white; 
+    font-weight: 600;
+
+    &.btn--primary {
+        background: $pink;
+        color: white; 
+        &:hover {
+            background: white;
+            color: $black;
+        }
+    }
+    &.btn--secondary {
+        background: $darkblue;
+        color: white; 
+        &:hover {
+            background: white;
+            color: $black;
+        }
+    }
+}
+
+
+
