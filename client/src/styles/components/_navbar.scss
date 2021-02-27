@@ -103,44 +103,85 @@
         }
     }
 
+    // Theming
+    &.light {
+        .logo-wrapper {
+            .logo-text {
+                color: $black;
+            }
+        }
+        .navbar__listing-item {
+            &:link, &:visited {
+                color: $black;
+            }
+        }
+    }
+
+    &.dark {
+        .logo-wrapper {
+            .logo-text {
+                color: white;
+            }
+        }
+        .navbar__listing-item {
+            &:link, &:visited {
+                color: white;
+            }
+        }
+    }
+
 }
 
-.header--fixed {
+.header--fixed, .navbar {
     position: absolute;
     top: 0;
     width: 100%;
 }
-.header--fixed.top {
+.header--fixed.top, .navbar.top {
     transition: none;
     transform: translateY(0);
 }
-.header--fixed.not-top {
+.header--fixed.not-top, .navbar.not-top {
     position: fixed;
     transform: translateY(-100%);
 }
-.header--fixed.slideDown.not-top {
+.header--fixed.slideDown.not-top, .navbar.slideDown.not-top {
     transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
     transform: translateY(0);
-    background: white;
-    .logo-text {
-        color: $black;
-    }
-    .navbar__listing-item {
-        color: $black;
-    }
-    .navbar__listing--mobile {
+    &.dark {
         background: white;
+        .logo-text {
+            color: $black;
+        }
+        .navbar__listing-item {
+            color: $black;
+        }
+        .navbar__listing--mobile {
+            background: white;
+        }
+    }
+    &.light {
+        background: $darkblue;
+        .logo-text {
+            color: white;
+        }
+        .navbar__listing-item {
+            color: white;
+        }
+        .navbar__listing--mobile {
+            background: white;
+        }
     }
 }
-.header--fixed.slideDown.top {
+.header--fixed.slideDown.top, .navbar.slideDown.top {
     transition: transform 0.3s ease-in-out;
     position: fixed;
 }
-.header--fixed.slideUp.not-top {
+.header--fixed.slideUp.not-top, .navbar.slideUp.not-top {
     transition: transform 0.3s ease-in-out;
     transform: translateY(-100%);
 }
-.header--fixed.slideUp.top {
+.header--fixed.slideUp.top, .navbar.slideUp.top {
     transform: translateY(-100%);
     position: absolute;
 }
