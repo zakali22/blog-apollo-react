@@ -9,7 +9,7 @@ export default function Header(props) {
                 <div className="header__left overlapped__left">
                     <div className="header__description">
                         <p className="header__description-author">Jonathan William</p>
-                        <h1 className="header__description-title">Designer by day.<br />Gamer by night.</h1>
+                        <h1 className="header__description-title">Designer by day.<br /> Gamer by&nbsp;night.</h1>
                         <p className="header__description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
                     </div>
                 </div>

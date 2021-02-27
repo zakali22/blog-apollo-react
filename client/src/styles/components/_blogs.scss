@@ -1,5 +1,5 @@
 .blogs {
-    padding-top: 120px;
+    // padding-top: 120px;
     &__title {
         position: relative;
     }
@@ -7,6 +7,9 @@
         margin-top: 35px;
         &.grid {
             grid-column-gap: 45px;
+            @media(max-width: 991px){
+                grid-row-gap: 100px;
+            }
         }
         &-card {
             display: flex;
@@ -15,6 +18,12 @@
                 width: auto;
                 height: 600px;
                 background: azure;
+                @media(max-width: 991px){
+                    height: 500px;
+                }
+                @media(max-width: 767px){
+                    height: 400px
+                }
                 svg {
                     width: 100%;
                     height: 100%;
@@ -29,34 +38,70 @@
             }
 
             &.blogs__listing-card--condensed {
-                grid-column: 1 / 5;
+                grid-column: 1 / span 4;
+                @media(max-width: 1200px){
+                    grid-column: 1 / span 5;
+                }
+                @media(max-width: 991px){
+                    grid-column: 1 / span 6;
+                }
+                @media(max-width: 767px){
+                    grid-column: 1 / -1;
+                }
                 .blogs__listing-card-image {
                     height: 800px;
+                    @media(max-width: 991px){
+                        height: 500px;
+                    }
+                    @media(max-width: 767px){
+                        height: 400px
+                    }
                 }
             }
             &.blogs__listing-card--expanded {
-                grid-column: 6 / -1;
+                grid-column: 6 / span 7;
+                @media(max-width: 991px){
+                    grid-column: 7 / span 6;
+                }
+                @media(max-width: 767px){
+                    grid-column: 1 / -1;
+                }
             }
 
 
             // Styling specific to blogs: positioning, styling
             &.blog-1 {
-                grid-row: 1 / 2;
+                @media(min-width: 768px){
+                    grid-row: 1 / 2;
+                }
             }
             &.blog-2 {
-                grid-row: 1 / 2;
+                @media(min-width: 768px){
+                    grid-row: 1 / 2;
+                }
             }
             &.blog-3 {
-                grid-row: 2 / -1;
-                grid-column: 1 / 7;
-                align-self: end;
                 position: relative;
-                top: -60px;
+                @media(min-width: 768px){
+                    grid-row: 2 / -1;
+                    align-self: end;
+                }
+                @media(min-width: 992px){
+                    top: -60px;
+                    grid-column: 1 / span 7;
+                }
             }
             &.blog-4 {
-                grid-row: 2 / -1;
-                grid-column: 8 / -1;
-                align-self: end;
+                @media(min-width: 768px){
+                    grid-row: 2 / -1;
+                    align-self: end;
+                }
+                @media(min-width: 992px){
+                    grid-column: 8 / span 5;
+                }
+                @media(min-width: 1201px){
+                    grid-column: 9 / span 4;
+                }
             }
         }
     }

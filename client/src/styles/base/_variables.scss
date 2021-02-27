@@ -5,6 +5,6 @@ $lightgrey: #bbbcbe;
 $superlightgrey: rgba(187, 188, 190, 0.2);
 $black: #2d2d2d;
 
-
+$footer-padding: 30px;
 $navbar-height: 135px;
-$footer-height: 282px;
+$footer-height: calc(255px + (#{$footer-padding} * 2));
