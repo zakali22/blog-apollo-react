@@ -103,6 +103,10 @@ a {
     background: white; 
     font-weight: 600;
 
+    @media(max-width: 500px){
+        padding: 2rem 3rem;
+    }
+
     &.btn--primary {
         background: $pink;
         color: white; 
