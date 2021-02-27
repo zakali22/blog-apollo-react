@@ -33,9 +33,20 @@ export default class Navbar extends Component {
                 })
             }
         })
+
+        document.addEventListener('click', (e) => {
+            if(this.state.navbarOpen){
+                if(!e.target.classList.contains('navbar__toggler') && !e.target.classList.contains('navbar__listing--mobile') && !e.target.parentElement.classList.contains('navbar__toggler') && !e.target.parentElement.classList.contains('navbar__toggler-icon')){
+                    console.log(e.target)
+                    this.setState((state) => ({
+                        navbarOpen: false
+                    }))
+                }
+            }
+        })
     }
 
-    handleNavbarOpen = () => {
+    handleNavbarOpen = (e) => {
         this.setState((state) => ({
             navbarOpen: !state.navbarOpen
         }))
@@ -62,7 +73,7 @@ export default class Navbar extends Component {
                             </div>
                         </div>
                         <button onClick={this.handleNavbarOpen} className="navbar__toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile-listing" aria-controls="navbar-mobile-listing" aria-expanded="true">
-                            <svg viewBox="0 0 100 80" width="20" height="20">
+                            <svg viewBox="0 0 100 80" width="20" height="20" className="navbar__toggler-icon">
                                 <rect width="100" height="20"></rect>
                                 <rect y="30" width="100" height="20"></rect>
                                 <rect y="60" width="100" height="20"></rect>
