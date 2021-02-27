@@ -33,6 +33,9 @@
             @media(max-width: 991px){
                 top: -50px
             }
+            @media(max-width: 500px){
+                top: -35px;
+            }
         }
         &-text {
             color: $darkblue;
@@ -56,6 +59,9 @@
     &__left {
         @media(max-width: 767px){
             grid-column: 1 / -1;
+        }
+        @media(max-width: 500px){
+            margin-top: 0;
         }
     }
     &__right {

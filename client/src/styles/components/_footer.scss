@@ -7,6 +7,10 @@
     width: 100%;
     z-index: 1;
 
+    @media(max-width: 435px){
+        padding: $footer-padding 0;
+    }
+
     & > .container {
         display: flex;
         flex-direction: column;
@@ -17,6 +21,10 @@
 
     .logo-wrapper {
         margin-bottom: 50px;
+
+        @media(max-width: 435px){
+            margin-bottom: 30px;
+        }
     }
 
     &__bottom {
@@ -26,6 +34,15 @@
         & > *:not(:last-child){
             margin-right: 30px;
         }
+
+        @media(max-width: 435px){
+            flex-direction: column;
+            & > *:not(:last-child){
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+
         a {
             p {
                 color: white;

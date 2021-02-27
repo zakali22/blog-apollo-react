@@ -36,6 +36,10 @@ h1, .h1 {
     @media(max-width: 500px){
         font-size: 6rem;
     }
+    @media(max-width: 375px){
+        font-size: 5rem;
+        line-height: 1;
+    }
 }
 
 h2, .h2 {
@@ -52,9 +56,9 @@ h2, .h2 {
     @media(max-width: 767px){
         font-size: 7rem;
     }
-    // @media(max-width: 500px){
-    //     font-size: 5rem;
-    // }
+    @media(max-width: 500px){
+        font-size: 4rem;
+    }
 }
 
 h3, .h3 {

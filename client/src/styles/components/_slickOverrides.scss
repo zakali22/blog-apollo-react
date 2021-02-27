@@ -40,6 +40,10 @@
         top: -120px;
     }
 
+    @media(max-width: 500px){
+        top: -110px;
+    }
+
     svg {
         width: 30px;
         height: 30px;
@@ -55,6 +59,10 @@
     left: auto;
     transform: scale(-1);
     margin-right: 60px;
+
+    @media(max-width: 500px){
+        margin-right: 37px;
+    }
 }
 
 .slick-next {
