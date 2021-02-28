@@ -22,7 +22,6 @@ export default class CreatePost extends Component {
                     </div>
                     <div className="create-post__panels-right split-panels__right">
                         <div className="split-panels__right-content">
-                            <h3>Create a post</h3>
                             <AddPost />
                         </div>
                     </div>

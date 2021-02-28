@@ -86,7 +86,7 @@ p {
 }
 
 ul {
-    list-style: none;
+    // list-style: none;
 }
 
 a {
@@ -95,6 +95,13 @@ a {
     &:link, &:visited {
         color: white;
     }
+    &.btn {
+        display: inline-block;
+        align-items: flex-start;
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: normal
+    }
 }
 
 .btn {
@@ -102,6 +109,9 @@ a {
     color: $black;
     background: white; 
     font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 1.4rem;
 
     @media(max-width: 500px){
         padding: 2rem 3rem;
@@ -110,6 +120,7 @@ a {
     &.btn--primary {
         background: $pink;
         color: white; 
+        border: 1px solid $pink;
         &:hover {
             background: white;
             color: $black;
@@ -118,6 +129,7 @@ a {
     &.btn--secondary {
         background: $darkblue;
         color: white; 
+        border: 1px solid $darkblue;
         &:hover {
             background: white;
             color: $black;
