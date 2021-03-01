@@ -7,4 +7,9 @@ $black: #2d2d2d;
 
 $footer-padding: 30px;
 $navbar-height: 135px;
-$footer-height: calc(255px + (#{$footer-padding} * 2));
+$footer-height: 281.09px;
+
+@media(max-width: 435px){
+    $footer-height: calc(255px + (#{$footer-padding} * 2));
+}
+

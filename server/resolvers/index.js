@@ -4,6 +4,9 @@ const {Kind} = require("graphql/language")
 const Post = require("../models/PostSchema")
 const User = require("../models/UserSchema")
 
+const path = require("path")
+const {createWriteStream} = require("fs")
+
 const resolvers = {
     Query: {
         post: async (obj, args, context) => {
@@ -21,8 +24,22 @@ const resolvers = {
         addPost: async (obj, {post}, context) => {
             try {
                 console.log(post.createdBy)
+                const files = [];
+                const {createReadStream, filename} = await post.image[0];
+
+                console.log(createReadStream, filename)
+
+                await new Promise(res => (
+                    createReadStream()
+                        .pipe(createWriteStream(path.join(__dirname, "../images", filename)))
+                        .on("close", res)
+                ))
+
+                files.push(filename)
+
                 await Post.create({
                     ...post,
+                    image: files,
                     created_by: post.createdBy._id
                 })
     
@@ -153,7 +170,31 @@ const resolvers = {
             await User.findByIdAndUpdate(args._id, {posts: newUserPosts}, {new: true})
             
             return await User.findById(args._id)
-        }
+        },
+        // uploadFile: async (obj, args, context) => {
+        //     try {
+        //         const files = []
+        //         const post = await Post.findById(args._id)
+        //         if(post){
+        //             const {createReadStream, filename} = await args.post.file;
+
+        //             await new Promise(res => (
+        //                 createReadStream()
+        //                     .pipe(createWriteStream(path.join(__dirname, "../images", filename)))
+        //                     .on("close", res)
+        //             ))
+
+        //             files.push(filename)
+
+        //             return true
+        //         } else {
+        //             throw new Error("Post doesn't exist")
+        //         }
+        //     } catch(e){
+        //         console.log(e)
+        //         return e
+        //     }
+        // }
     },
 
     // Type resolvers
@@ -172,6 +213,20 @@ const resolvers = {
             } 
             return null
         }
+    }),
+
+    Upload: new GraphQLScalarType({
+        name: 'Upload',
+        description: 'The `Upload` scalar type represents a file upload.',
+        parseValue(value) {
+          return value
+        },
+        serialize(value) {
+          return value
+        },
+        parseLiteral(ast) {
+          throw new Error('‘Upload’ scalar literal unsupported.')
+        },
     }),
 
     Post: {

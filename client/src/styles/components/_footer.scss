@@ -1,11 +1,14 @@
 .footer {
     background-color: $darkblue;
+    display: flex;
+    align-items: center;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
     z-index: 1;
+    height: $footer-height;
 
     @media(max-width: 435px){
         padding: $footer-padding 0;

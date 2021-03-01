@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from "react-router-dom"
 import Headroom from "headroom.js"
+import NavbarThemeContext from "../../context/NavbarTheme"
 
 export default class Navbar extends Component {
     constructor(props){
@@ -9,6 +10,7 @@ export default class Navbar extends Component {
         this.state = {
             navbarOpen: false
         }
+        this.headroom = null;
     }
 
     componentDidMount(){
@@ -23,8 +25,8 @@ export default class Navbar extends Component {
                 "notTop": "not-top"
             }
         }
-        const headroom  = new Headroom(this.navEl.current, options);
-        headroom.init();
+        this.headroom  = new Headroom(this.navEl.current, options);
+        this.headroom.init();
 
         document.addEventListener('scroll', () => {
             if(this.state.navbarOpen && window.pageYOffset > 0){
@@ -42,6 +44,20 @@ export default class Navbar extends Component {
                         navbarOpen: false
                     }))
                 }
+                if(this.navEl.current){
+                    console.log(this.navEl.current.classList.contains('light--with-split-panels'))
+                    if(this.navEl.current.classList.contains('light--with-split-panels')){
+                        console.log("Added")
+                        this.navEl.current.classList.add('navbar--show')
+                    }
+                }
+            } else {
+                if(this.navEl.current){
+                    if(this.navEl.current.classList.contains('light--with-split-panels')){
+                        console.log("Added")
+                        this.navEl.current.classList.remove('navbar--show')
+                    }
+                }
             }
         })
     }
@@ -54,42 +70,46 @@ export default class Navbar extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <nav className="navbar" ref={this.navEl}>
-                    <div className="container">
-                        <Link to="/" className="logo-wrapper">
-                            <div className="logo-icon">B</div>
-                            <span className="logo-text">Bloggy</span>
-                        </Link>
-                        <div className="navbar__listing navbar__listing--desktop">
-                            <div className="navbar__listing-left">
-                                <Link to="/" className="navbar__listing-item">About</Link>
-                                <Link to="/" className="navbar__listing-item">Stories</Link>
-                                <Link to="/" className="navbar__listing-item">Popular</Link>
+            <NavbarThemeContext.Consumer>
+                {({navbarColorTheme}) => {
+                    return (
+                        <nav className={`navbar ${navbarColorTheme}`} ref={this.navEl}>
+                            <div className="container">
+                                <Link to="/" className="logo-wrapper">
+                                    <div className="logo-icon">B</div>
+                                    <span className="logo-text">Bloggy</span>
+                                </Link>
+                                <div className="navbar__listing navbar__listing--desktop">
+                                    <div className="navbar__listing-left">
+                                        <Link to="/" className="navbar__listing-item">About</Link>
+                                        <Link to="/" className="navbar__listing-item">Stories</Link>
+                                        <Link to="/" className="navbar__listing-item">Popular</Link>
+                                    </div>
+                                    <div className="navbar__listing-right">
+                                        <Link to="/" className="navbar__listing-item">Signup</Link>
+                                        <Link to="/" className="navbar__listing-item">Login</Link>
+                                    </div>
+                                </div>
+                                <button onClick={this.handleNavbarOpen} className="navbar__toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile-listing" aria-controls="navbar-mobile-listing" aria-expanded="true">
+                                    <svg viewBox="0 0 100 80" width="20" height="20" className="navbar__toggler-icon">
+                                        <rect width="100" height="20"></rect>
+                                        <rect y="30" width="100" height="20"></rect>
+                                        <rect y="60" width="100" height="20"></rect>
+                                    </svg>
+                                </button>
+                                <div className={`navbar__listing navbar__listing--mobile ${this.state.navbarOpen ? 'show': 'hide'}`}>
+                                    <Link to="/" className="navbar__listing-item">About</Link>
+                                    <Link to="/" className="navbar__listing-item">Stories</Link>
+        
+                                    <Link to="/" className="navbar__listing-item">Signup</Link>
+                                    <Link to="/" className="navbar__listing-item">Login</Link>
+        
+                                </div>
                             </div>
-                            <div className="navbar__listing-right">
-                                <Link to="/" className="navbar__listing-item">Signup</Link>
-                                <Link to="/" className="navbar__listing-item">Login</Link>
-                            </div>
-                        </div>
-                        <button onClick={this.handleNavbarOpen} className="navbar__toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile-listing" aria-controls="navbar-mobile-listing" aria-expanded="true">
-                            <svg viewBox="0 0 100 80" width="20" height="20" className="navbar__toggler-icon">
-                                <rect width="100" height="20"></rect>
-                                <rect y="30" width="100" height="20"></rect>
-                                <rect y="60" width="100" height="20"></rect>
-                            </svg>
-                        </button>
-                        <div className={`navbar__listing navbar__listing--mobile ${this.state.navbarOpen ? 'show': 'hide'}`}>
-                            <Link to="/" className="navbar__listing-item">About</Link>
-                            <Link to="/" className="navbar__listing-item">Stories</Link>
-
-                            <Link to="/" className="navbar__listing-item">Signup</Link>
-                            <Link to="/" className="navbar__listing-item">Login</Link>
-
-                        </div>
-                    </div>
-                </nav>
-            </React.Fragment>
+                        </nav>
+                    )
+                }}
+            </NavbarThemeContext.Consumer>
         )
     }
 }

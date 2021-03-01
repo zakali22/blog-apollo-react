@@ -2,10 +2,11 @@ const {ApolloServer} = require("apollo-server")
 const express = require("express")
 const resolvers = require("./resolvers/index.js")
 const typeDefs = require("./types/index.js")
+const path = require("path")
 
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-const path = '/api'
+// const pathUri = '/api'
 const PORT = process.env.PORT || 4000;
 const app = express();
 
@@ -27,7 +28,7 @@ db.once('open', function() {
     // server.applyMiddleware({app, path})
 
     // app.listen(PORT, () => console.log(`Listening on port http://localhost:${PORT}/api`))
-
+    app.use("/images", express.static(path.join(__dirname, "../images")))
     server.listen({ port: PORT }).then(({ url }) => {
         console.log(`🚀 Server ready at ${url}`);
     });
