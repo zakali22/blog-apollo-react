@@ -21,6 +21,7 @@ const typeDefs = gql`
         createdAt: Date
         updatedAt: Date
         createdBy: User
+        image: Upload!
     }
 
     # Inputs
@@ -37,6 +38,7 @@ const typeDefs = gql`
         title: String
         body: String
         createdBy: UserInput
+        image: Upload
     }
 
     # Queries + Mutations

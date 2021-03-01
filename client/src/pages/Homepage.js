@@ -5,6 +5,9 @@ import FeaturedBlog from "../components/Blogs/FeaturedBlog"
 import BlogsCarousel from "../components/Blogs/BlogsCarousel"
 import NavbarThemeContext from "../context/NavbarTheme"
 
+import {Query} from "react-apollo"
+import FETCH_POSTS from "../queries/fetchPosts"
+
 export default class Homepage extends Component {
 
     componentDidMount(){
@@ -15,12 +18,23 @@ export default class Homepage extends Component {
 
     render() {
         return (
-            <main className="main-content">
-                <Header />
-                <Blogs />
-                <FeaturedBlog />
-                <BlogsCarousel />
-            </main>
+            <Query query={FETCH_POSTS}>
+                {({loading, data}) => {
+                    if(loading) return <p>Loading</p>
+
+                    const {posts} = data
+                    console.log(posts)
+                    
+                    return (
+                        <main className="main-content">
+                            <Header />
+                            <Blogs  />
+                            <FeaturedBlog post={posts[0]}/>
+                            <BlogsCarousel />
+                        </main>
+                    )
+                }}
+            </Query>
         )
     }
 }

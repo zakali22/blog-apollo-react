@@ -9,6 +9,7 @@ const PostSchema = new Schema({
     //     type: Date,
     //     default: Date.now
     // },
+    image: Buffer,
     created_by: {
         type: Schema.Types.ObjectId, 
         ref: 'User'

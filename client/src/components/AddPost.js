@@ -7,6 +7,7 @@ import { convertToHTML } from 'draft-convert';
 import DOMPurify from 'dompurify';
 import {withRouter} from "react-router-dom"
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import ImageDropzone from "./Dropzone"
 
 const CURRENT_USER = "6015d51cb7eaaa248cb5c27a"
 
@@ -16,6 +17,7 @@ function AddPost(props) {
     const [preview, setPreview] = useState(false)
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     const [convertedContent, setConvertedContent] = useState(null);
+    const [image, setImage] = useState('')
 
     const handleEditorChange = (state) => {
         setEditorState(state);
@@ -31,18 +33,18 @@ function AddPost(props) {
         e.preventDefault();
 
         console.log(title)
-        console.log(editorState)
-        console.log(convertedContent)
-        if(title.length && convertedContent) {
+        console.log(image)
+        if(title.length && convertedContent && image.length) {
             addPostFunc({
                 variables: {
                     title,
                     body: convertedContent,
+                    image,
                     createdBy: {_id: CURRENT_USER}
                 }
             }).then(() => {
                 resetFields()
-                props.history.push('/')
+                // props.history.push('/')
             })
         }
     }
@@ -63,6 +65,10 @@ function AddPost(props) {
         if(title.length && convertedContent) {
             setPreview(true)
         }
+    }
+
+    const handleImageAdd = (image) => {
+        setImage(image)
     }
 
     return (
@@ -91,6 +97,7 @@ function AddPost(props) {
                                             toolbarClassName="toolbar-class" 
                                             placeholder="Enter body"
                                         />
+                                        <ImageDropzone addImage={handleImageAdd} />
                                         <button role="submit" className="btn btn--secondary">Submit</button>
                                         <a href="#" onClickCapture={handlePreview} className="btn btn--primary">Preview</a>
                                     </form>

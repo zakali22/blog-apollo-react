@@ -1,5 +1,7 @@
 import React from "react"
-import ApolloClient from "apollo-boost"
+import ApolloClient from "apollo-client"
+import {InMemoryCache} from "apollo-cache-inmemory"
+import {createUploadLink} from "apollo-upload-client"
 import {ApolloProvider, Query} from "react-apollo"
 import {Switch, Route, Link} from "react-router-dom"
 import NavbarThemeContext from "./context/NavbarTheme"
@@ -12,8 +14,10 @@ const defaultState = {
   isEditMode: true
 }
 
+const link = createUploadLink({uri: "http://localhost:4000/"}) // For live version: https://sheltered-journey-32195.herokuapp.com/
 const client = new ApolloClient({
-  uri: "https://sheltered-journey-32195.herokuapp.com/",
+  link,
+  cache: new InMemoryCache(),
   clientState: {
     defaults: defaultState,
     resolvers: {}
