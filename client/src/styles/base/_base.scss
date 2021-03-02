@@ -1,0 +1,141 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    padding-bottom: $footer-height;
+}
+
+h1, .h1 {
+    font-size: 12rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    line-height: 0.89;
+
+    @media(max-width: 1145px){
+        font-size: 10rem;
+    }
+    @media(max-width: 991px){
+        font-size: 9rem;
+    }
+    @media(max-width: 767px){
+        font-size: 8rem;
+    }
+    @media(max-width: 500px){
+        font-size: 6rem;
+    }
+    @media(max-width: 375px){
+        font-size: 5rem;
+        line-height: 1;
+    }
+}
+
+h2, .h2 {
+    font-size: 10rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+
+    @media(max-width: 1300px){
+        font-size: 9rem;
+    }
+    @media(max-width: 991px){
+        font-size: 8rem;
+    }
+    @media(max-width: 767px){
+        font-size: 7rem;
+    }
+    @media(max-width: 500px){
+        font-size: 4rem;
+    }
+}
+
+h3, .h3 {
+    font-size: 5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    @media(max-width: 1300px){
+        font-size: 4rem;
+    }
+    @media(max-width: 991px){
+        font-size: 3rem;
+    }
+}
+
+h4, .h4 {
+    font-size: 3rem;
+    font-family: 'Landasans';
+    font-weight: 100;
+
+}
+
+p {
+    font-size: 2rem;
+    color: $lightgrey;
+}
+
+ul {
+    // list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-size: 19px;
+    &:link, &:visited {
+        color: white;
+    }
+    &.btn {
+        display: inline-block;
+        align-items: flex-start;
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: normal
+    }
+}
+
+.btn {
+    padding: 3rem 5rem;
+    color: $black;
+    background: white; 
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 1.4rem;
+
+    @media(max-width: 500px){
+        padding: 2rem 3rem;
+    }
+
+    &.btn--primary {
+        background: $pink;
+        color: white; 
+        border: 1px solid $pink;
+        &:hover {
+            background: white;
+            color: $black;
+        }
+    }
+    &.btn--secondary {
+        background: $darkblue;
+        color: white; 
+        border: 1px solid $darkblue;
+        &:hover {
+            background: white;
+            color: $black;
+        }
+    }
+}
+
+
+

@@ -7,6 +7,7 @@ export default gql`
       title
       createdAt
       body
+      image
       createdBy {
         name
         username

@@ -1,0 +1,101 @@
+.featured-blog {
+    // padding: 120px 0;
+    &__description {
+        position: relative;
+        @media(max-width: 767px){
+            display: flex;
+            flex-direction: column;
+        }
+        &-subtitle {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: $darkblue;
+            margin-bottom: 30px;
+        }
+        &-title {
+            line-height: 0.9;
+            font-weight: 600;
+            letter-spacing: -3px;
+            position: relative;
+            left: -7px;
+            color: $darkblue;
+            margin-bottom: 70px;
+            @media(max-width: 991px){
+                margin-bottom: 50px;
+            }
+        }
+        &-title-bg {
+            top: -79px;
+            // left: -172px;
+            line-height: normal;
+            letter-spacing: -7px;
+            // font-size: 15rem;
+            @media(max-width: 991px){
+                top: -50px
+            }
+            @media(max-width: 500px){
+                top: -35px;
+            }
+        }
+        &-text {
+            color: $darkblue;
+            width: 100%;
+            max-width: 350px;
+            @media(max-width: 767px){
+                margin-bottom: 40px;
+            }
+        }
+        &-btn.btn {
+            display: none;
+            @media(max-width: 767px){
+                display: block;
+                align-self: flex-end;
+            }
+            @media(max-width: 530px){
+                align-self: flex-start;
+            }
+        }
+    }
+    &__left {
+        @media(max-width: 767px){
+            grid-column: 1 / -1;
+        }
+        @media(max-width: 500px){
+            margin-top: 0;
+        }
+    }
+    &__right {
+        grid-column: 5 / -1;
+        grid-row: 1 / 1;
+        z-index: 1;
+        @media(max-width: 767px){
+            display: none;
+        }
+        &-image {
+            height: 70vh;
+
+            .btn {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: auto;
+
+                @media(max-width: 1190px){
+                    left: auto;
+                    right: 0;
+                }
+            }
+
+            &.overlapped__right-image--svg {
+                border-bottom-right-radius: 100px;
+                border-top-right-radius: 0;
+                border-bottom-left-radius: 0;
+
+                @media(max-width: 1190px){
+                    border-bottom-left-radius: 100px;
+                    border-bottom-right-radius: 0;
+                }
+            }
+        }
+    }
+}
