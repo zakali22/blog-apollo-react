@@ -18,8 +18,7 @@ const server = new ApolloServer({
 })
 
 
-mongoose.connect('mongodb+srv://zakali22:wJ2cQEa5ptGBJDjG@cluster0.z9crl.mongodb.net/blog-apollo-db?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
-
+mongoose.connect('mongodb+srv://zakali22:wODiopDpllY6Ncrd@cluster0.z9crl.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {

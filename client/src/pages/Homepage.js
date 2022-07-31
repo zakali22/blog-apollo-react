@@ -29,7 +29,7 @@ export default class Homepage extends Component {
                         <main className="main-content">
                             <Header />
                             <Blogs  />
-                            <FeaturedBlog post={posts[0]}/>
+                            {posts.length > 0 && <FeaturedBlog post={posts[0]}/>}
                             <BlogsCarousel />
                         </main>
                     )

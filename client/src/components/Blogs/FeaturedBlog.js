@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import {Link} from "react-router-dom"
 import {ReactComponent as SVGImage} from "../../assets/images/happy-bunch.svg"
 
-import {Buffer} from "buffer"
+// import {Buffer} from "buffer"
 
 export default class FeaturedBlog extends Component {
     render() {
-        console.log(Buffer.from(this.props.post.image.data[0]))
+        // console.log(Buffer.from(this.props.post.image.data[0]))
         return (
             <div className="featured-blog section">
                 <div className="container grid">
